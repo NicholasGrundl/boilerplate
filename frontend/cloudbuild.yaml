@@ -1,0 +1,35 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA', '.']
+
+# Push the container image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA']
+
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'run'
+  - 'deploy'
+  - 'frontend'
+  - '--image'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+
+# Tag the image as 'latest'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['tag', 
+         'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA',
+         'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:latest']
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:latest']
+
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend'
