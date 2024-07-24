@@ -47,10 +47,10 @@ gcloud services enable artifactregistry.googleapis.com
 1. Create a new repository for Docker images:
 
    ```bash
-   gcloud artifacts repositories create issfrontend-repo \
+   gcloud artifacts repositories create frontend-repo \
        --repository-format=docker \
        --location=us-central1 \
-       --description="Docker repository for issfrontend"
+       --description="Docker repository for frontend"
    ```
 
 2. Configure Docker to use gcloud as a credential helper:
@@ -84,32 +84,32 @@ If you want to use a service account for deployments:
 1. Create a new service account:
 
    ```bash
-   gcloud iam service-accounts create issfrontend-sa \
-       --description="Service account for issfrontend" \
-       --display-name="issfrontend-sa"
+   gcloud iam service-accounts create frontend-sa \
+       --description="Service account for frontend" \
+       --display-name="frontend-sa"
    ```
 
 2. Grant necessary roles to the service account:
 
    ```bash
    gcloud projects add-iam-policy-binding $PROJECT_ID \
-       --member="serviceAccount:issfrontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
+       --member="serviceAccount:frontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
        --role="roles/run.admin"
 
    gcloud projects add-iam-policy-binding $PROJECT_ID \
-       --member="serviceAccount:issfrontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
+       --member="serviceAccount:frontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
        --role="roles/storage.admin"
 
    gcloud projects add-iam-policy-binding $PROJECT_ID \
-       --member="serviceAccount:issfrontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
+       --member="serviceAccount:frontend-sa@$PROJECT_ID.iam.gserviceaccount.com" \
        --role="roles/artifactregistry.admin"
    ```
 
 3. Create and download a key for the service account:
 
    ```bash
-   gcloud iam service-accounts keys create issfrontend-sa-key.json \
-       --iam-account=issfrontend-sa@$PROJECT_ID.iam.gserviceaccount.com
+   gcloud iam service-accounts keys create frontend-sa-key.json \
+       --iam-account=frontend-sa@$PROJECT_ID.iam.gserviceaccount.com
    ```
 
    Keep this key file secure and do not commit it to version control.
