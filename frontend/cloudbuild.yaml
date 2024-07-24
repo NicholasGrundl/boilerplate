@@ -33,3 +33,7 @@ steps:
 
 images:
 - 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend'
+
+options:
+  logging: CLOUD_LOGGING_ONLY  # or NONE
+service_account: 'frontend-sa@insilicostrategy.iam.gserviceaccount.com'
