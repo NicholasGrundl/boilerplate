@@ -1,0 +1,69 @@
+@import '../styles/global.scss';
+@import '../styles/shared.scss';
+@import '../styles/layout.scss';
+
+.mainLanding {
+  font-family: $main-font;
+  color: $text-color;
+}
+
+.services {
+  padding: $spacing-xl $spacing-lg;
+  background-color: $light-gray;
+}
+
+.services h2 {
+  @extend .section-title;
+}
+
+.serviceGrid {
+  @extend .grid;
+}
+
+.cta {
+  padding: $spacing-xl $spacing-lg;
+  text-align: center;
+  background-color: $primary-color;
+  color: $white;
+}
+
+.cta h2 {
+  font-size: $font-size-xxl;
+  margin-bottom: $spacing-md;
+}
+
+.cta p {
+  font-size: $font-size-large;
+  margin-bottom: $spacing-lg;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  @extend .button;
+  background-color: $white;
+  color: $primary-color;
+
+  &:hover {
+    background-color: darken($white, 10%);
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .services {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  .cta {
+    padding: $spacing-lg $spacing-md;
+  }
+
+  .cta h2 {
+    font-size: $font-size-xl;
+  }
+
+  .cta p {
+    font-size: $font-size-base;
+  }
+}

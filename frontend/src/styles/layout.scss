@@ -1,0 +1,62 @@
+@import './global.scss';
+
+// Responsive container
+.container {
+  width: 100%;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $tablet-width) {
+    max-width: 720px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 960px;
+  }
+}
+
+// Responsive grid
+.grid {
+  display: grid;
+  gap: $spacing-md;
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Flex container
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+  }
+}
+
+// Main content area
+.main-content {
+  padding: $spacing-lg 0;
+}
+
+// Full-width section
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}

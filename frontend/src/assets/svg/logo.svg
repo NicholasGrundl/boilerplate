@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Updated Original Color Scheme with Slate and Background Connections -->
+    <g id="logo-blue-slate-background">
+      <!-- Background circuit connections -->
+      <line x1="70" y1="45" x2="50" y2="25" stroke="#708090" stroke-width="2"/>
+      <line x1="130" y1="75" x2="150" y2="95" stroke="#708090" stroke-width="2"/>
+      <line x1="100" y1="90" x2="100" y2="110" stroke="#708090" stroke-width="2"/>
+      <circle cx="50" cy="25" r="3" fill="#708090"/>
+      <circle cx="150" cy="95" r="3" fill="#708090"/>
+      <circle cx="100" cy="110" r="3" fill="#708090"/>
+      
+      <!-- Hexagon and main structure -->
+      <path d="M100 30 L130 45 L130 75 L100 90 L70 75 L70 45 Z" fill="none" stroke="#1a237e" stroke-width="4"/>
+      <circle cx="70" cy="45" r="5" fill="#1a237e"/>
+      <circle cx="130" cy="75" r="5" fill="#1a237e"/>
+      <circle cx="100" cy="90" r="5" fill="#1a237e"/>
+    </g>
+  </defs>
+  
+  <!-- Blue and Slate Color Scheme with Background Connections -->
+  <use href="#logo-blue-slate-background" x="0" y="0" />
+</svg>

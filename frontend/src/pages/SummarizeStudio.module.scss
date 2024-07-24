@@ -1,0 +1,67 @@
+@import '../styles/global.scss';
+@import '../styles/shared.scss';
+@import '../styles/layout.scss';
+
+.summarizeStudio {
+  @extend .container;
+  padding: $spacing-lg 0;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  color: $primary-color;
+  margin-bottom: $spacing-md;
+}
+
+.description {
+  font-size: $font-size-large;
+  line-height: 1.5;
+  margin-bottom: $spacing-lg;
+}
+
+.instructions {
+  @extend .card;
+  background-color: $light-gray;
+  margin-bottom: $spacing-lg;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  ol {
+    padding-left: $spacing-lg;
+  }
+}
+
+.recorderContainer {
+  margin-bottom: $spacing-lg;
+}
+
+.comingSoon {
+  @extend .card;
+  background-color: $light-gray;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  ul {
+    padding-left: $spacing-lg;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .summarizeStudio {
+    padding: $spacing-md 0;
+  }
+
+  .title {
+    font-size: $font-size-xl;
+  }
+
+  .description {
+    font-size: $font-size-base;
+  }
+}

@@ -1,0 +1,99 @@
+@import '../styles/global.scss';
+@import '../styles/shared.scss';
+@import '../styles/layout.scss';
+
+.aboutMeContainer {
+  @extend .container;
+  padding: $spacing-lg 0;
+}
+
+.aboutMeHeader {
+  text-align: center;
+  margin-bottom: $spacing-lg;
+
+  h1 {
+    font-size: $font-size-xxl;
+    color: $primary-color;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.aboutMeIntro {
+  font-size: $font-size-large;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto $spacing-xl;
+}
+
+.expertiseAreas {
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    @extend .section-title;
+  }
+}
+
+.expertiseGrid {
+  @extend .grid;
+}
+
+.expertiseItem {
+  @extend .card;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  i {
+    font-size: $font-size-xxl;
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  h3 {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-sm;
+    color: $primary-color;
+  }
+}
+
+.aboutMeBackground {
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-md;
+    color: $primary-color;
+  }
+}
+
+.callToAction {
+  @extend .card;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-md;
+    color: $primary-color;
+  }
+}
+
+.ctaButton {
+  @extend .button;
+}
+
+@media (max-width: $tablet-width) {
+  .aboutMeHeader h1 {
+    font-size: $font-size-xl;
+  }
+
+  .aboutMeIntro {
+    font-size: $font-size-base;
+  }
+
+  .callToAction h2 {
+    font-size: $font-size-large;
+  }
+}

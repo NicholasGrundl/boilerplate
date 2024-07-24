@@ -1,0 +1,77 @@
+@import '../../styles/global.scss';
+@import '../../styles/shared.scss';
+
+.audioRecorder {
+  @extend .card;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.button {
+  @extend .button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-right: $spacing-xs;
+  }
+}
+
+.recording {
+  background-color: #F44336;
+
+  &:hover {
+    background-color: darken(#F44336, 10%);
+  }
+}
+
+.input {
+  @extend .form-input;
+  flex-grow: 1;
+  margin-left: $spacing-md;
+}
+
+.visualization {
+  margin-bottom: $spacing-md;
+  background-color: $light-gray;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.downloadButtons {
+  display: flex;
+  justify-content: space-between;
+
+  .button {
+    flex: 1;
+    margin: 0 $spacing-xs;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .input {
+    margin-left: 0;
+    margin-top: $spacing-sm;
+    width: 100%;
+  }
+
+  .downloadButtons {
+    flex-direction: column;
+
+    .button {
+      margin: $spacing-xs 0;
+    }
+  }
+}

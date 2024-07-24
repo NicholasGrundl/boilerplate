@@ -1,0 +1,79 @@
+@import '../styles/global.scss';
+@import '../styles/shared.scss';
+@import '../styles/layout.scss';
+
+.contactContainer {
+  @extend .container;
+  padding: $spacing-lg 0;
+}
+
+.title {
+  @extend .section-title;
+}
+
+.contactContent {
+  @extend .flex-container;
+}
+
+.contactForm {
+  flex: 2;
+}
+
+.contactInfo {
+  flex: 1;
+  background-color: $light-gray;
+  padding: $spacing-md;
+  border-radius: 8px;
+}
+
+.formGroup {
+  @extend .form-group;
+}
+
+.label {
+  @extend .form-label;
+}
+
+.input,
+.textarea {
+  @extend .form-input;
+}
+
+.textarea {
+  height: 150px;
+}
+
+.error {
+  color: #F44336;
+  font-size: $font-size-small;
+}
+
+.submitButton {
+  @extend .button;
+
+  &.submitting {
+    background-color: lighten($primary-color, 20%);
+    cursor: not-allowed;
+  }
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-md;
+
+  svg {
+    margin-right: $spacing-sm;
+    color: $primary-color;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .contactContent {
+    flex-direction: column;
+  }
+
+  .contactInfo {
+    margin-top: $spacing-lg;
+  }
+}

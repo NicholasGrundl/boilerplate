@@ -1,0 +1,77 @@
+@import '../styles/global.scss';
+@import '../styles/shared.scss';
+@import '../styles/layout.scss';
+
+.servicesPage {
+  @extend .container;
+  padding: $spacing-lg 0;
+}
+
+.serviceSection {
+  margin-bottom: $spacing-xl;
+  padding: $spacing-xl;
+  background-color: $light-gray;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-xxl;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  ul {
+    margin-bottom: $spacing-lg;
+    padding-left: $spacing-lg;
+  }
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.placeholder {
+  background-color: $medium-gray;
+  padding: $spacing-lg;
+  margin: $spacing-lg 0;
+  border-radius: 8px;
+
+  h3 {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.chart,
+.diagram,
+.pipeline {
+  height: 300px;
+  background-color: $white;
+  border: 1px solid $medium-gray;
+  border-radius: 4px;
+}
+
+.placeholderSVG {
+  display: block;
+  margin: $spacing-lg auto;
+}
+
+@media (max-width: $tablet-width) {
+  .serviceSection {
+    padding: $spacing-lg;
+
+    h2 {
+      font-size: $font-size-xl;
+    }
+  }
+
+  .chart,
+  .diagram,
+  .pipeline {
+    height: 200px;
+  }
+}

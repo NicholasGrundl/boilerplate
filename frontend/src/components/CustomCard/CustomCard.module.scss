@@ -1,0 +1,49 @@
+@import '../../styles/global.scss';
+@import '../../styles/shared.scss';
+
+.customCard {
+  @extend .card;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.title {
+  font-size: $font-size-xl;
+  color: $primary-color;
+  margin-bottom: $spacing-sm;
+}
+
+.description {
+  font-size: $font-size-base;
+  color: $text-color;
+  line-height: 1.5;
+}
+
+.mediaContainer {
+  margin-bottom: $spacing-md;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.image {
+  @extend .responsive-image;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.component {
+  // Add any specific styles for component media type if needed
+}
