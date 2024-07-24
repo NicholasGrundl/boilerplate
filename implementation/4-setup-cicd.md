@@ -2,7 +2,7 @@
 
 ## Create cloudbuild.yaml file
 
-1. In the root directory of your `issfrontend` project, create a new file named `cloudbuild.yaml`.
+1. In the root directory of your `frontend` project, create a new file named `cloudbuild.yaml`.
 
 2. Open `cloudbuild.yaml` in your text editor and add the following content:
 
@@ -10,11 +10,11 @@
    steps:
    # Build the container image
    - name: 'gcr.io/cloud-builders/docker'
-     args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:$COMMIT_SHA', '.']
+     args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA', '.']
 
    # Push the container image to Artifact Registry
    - name: 'gcr.io/cloud-builders/docker'
-     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:$COMMIT_SHA']
+     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA']
 
    # Deploy container image to Cloud Run
    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -22,9 +22,9 @@
      args:
      - 'run'
      - 'deploy'
-     - 'issfrontend'
+     - 'frontend'
      - '--image'
-     - 'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:$COMMIT_SHA'
+     - 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA'
      - '--region'
      - 'us-central1'
      - '--platform'
@@ -34,14 +34,14 @@
    # Tag the image as 'latest'
    - name: 'gcr.io/cloud-builders/docker'
      args: ['tag', 
-            'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:$COMMIT_SHA',
-            'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:latest']
+            'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:$COMMIT_SHA',
+            'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:latest']
 
    - name: 'gcr.io/cloud-builders/docker'
-     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend:latest']
+     args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend:latest']
 
    images:
-   - 'us-central1-docker.pkg.dev/$PROJECT_ID/issfrontend-repo/issfrontend'
+   - 'us-central1-docker.pkg.dev/$PROJECT_ID/frontend-repo/frontend'
    ```
 
 3. Save the file.
@@ -59,7 +59,7 @@
 5. Once connected, click "Create Trigger"
 
 6. Fill in the trigger settings:
-   - Name: `issfrontend-trigger`
+   - Name: `frontend-trigger`
    - Event: Choose "Push to a branch"
    - Source: Select your repository and branch (e.g., `^main$` for the main branch)
    - Configuration: Select "Cloud Build configuration file (yaml or json)"
